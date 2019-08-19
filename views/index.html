@@ -15,8 +15,9 @@ function getCookie(name) {
     if (parts.length == 2) return parts.pop().split(";").shift();
 }
 
-// POST请求时，添加x-csrf-token，值为PPU cookie
-// cookie PPU未设置时，x-csrf-token可以为空，或者null；或者不设置x-csrf-token
+
+//- step1，POST请求时，添加header x-csrf-token，值为PPU cookie
+//- step2，cookie无PPU时，x-csrf-token可以为空，或者null；或者干脆不设置x-csrf-token
 fetch( 'http://www.siteb.com:3005/post', {
     credentials: 'include',
     method: 'post',
