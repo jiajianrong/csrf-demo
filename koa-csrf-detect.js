@@ -36,7 +36,7 @@ module.exports = function (csrfCookieKey, csrfHeaderKey, whitelist=[]) {
     
     // check if url is in whitelist
     function hitWhitelist(url) {
-        return whitelist.some(item => url.startWith(item) || (item.test && item.test(url)))
+        return whitelist.some(item => url.startsWith(item) || (item.test && item.test(url)))
     }
     
     return function isCsrfAttack(ctx) {
